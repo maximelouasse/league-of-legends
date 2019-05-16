@@ -22,3 +22,7 @@ Route::get('/', function () {
 	var_dump(json_decode($result)->data->$champ->title);
     //return view('welcome');
 });
+
+Route::get('/', 'ChampionController@getAllChampions');
+
+Route::get('/champions/{id_champion}', 'ChampionController@getChampionDetail');
