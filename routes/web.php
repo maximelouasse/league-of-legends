@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', 'ChampionController@getAllChampions');
+
+Route::get('/{id_champion}', 'ChampionController@getChampionDetail');
