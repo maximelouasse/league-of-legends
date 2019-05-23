@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class ChampionController extends Controller
 {
@@ -10,7 +12,11 @@ class ChampionController extends Controller
         return response()->view('pages.champion');
     }
 
-    function getChampionDetail( $id_champion ) {
-        return response()->view('pages.championDetail', ['id_champion' => $id_champion]);
+    function getChampionDetail( $name_champion ) {
+		$client = new Client();
+		$res = $client->request('GET', 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/' . $name_champion . '.json');
+		$result = $res->getBody()->getContents();
+		//var_dump(json_decode($result)->data->$name_champion->title);
+		return response()->view('pages.championDetail', ['title_champion' => json_decode($result)->data->$name_champion->title]);
     }
 }
