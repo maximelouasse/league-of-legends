@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 class ChampionController extends Controller
 {
     function getAllChampions() {
-        return response()->view('pages.champion');
+        return response()->view('pages.champions');
     }
 
     function getChampionDetail( $name_champion ) {
