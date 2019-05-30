@@ -8,6 +8,6 @@ class Skill extends Model
 {
     public function champions()
     {
-        return $this->hasMany(Champion::class, 'skill_id');
+        return $this->belongsTo(Champion::class, 'champion_id');
     }
 }

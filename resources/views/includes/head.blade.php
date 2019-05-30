@@ -3,3 +3,6 @@
 <meta name="author" content="Louasse Maxime & Houvin Corentin">
 
 <title>League of Legends</title>
+
+<!-- specific scripts -->
+@yield('specificscripts')

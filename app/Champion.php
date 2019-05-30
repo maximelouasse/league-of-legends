@@ -8,12 +8,12 @@ class Champion extends Model
 {
     public function skill()
     {
-        return $this->belongsTo(Skill::class, 'skill_id');
+        return $this->hasMany(Skill::class, 'champion_id');
 	}
 	
     public function avatar()
     {
-        return $this->belongsTo(Creator::class, 'avatar_id');
+        return $this->hasOne(Avatar::class, 'id');
     }
 	
 	public function items()

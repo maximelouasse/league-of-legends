@@ -8,6 +8,6 @@ class Avatar extends Model
 {
     public function champion()
     {
-        return $this->belongsTo(Champion::class, 'avatar_id');
+        return $this->hasOne(Champion::class, 'avatar_id');
     }
 }

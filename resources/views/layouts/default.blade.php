@@ -1,14 +1,16 @@
 <!doctype html>
 <html>
     <head>
-        @include('includes.head')
+		@include('includes.head')
     </head>
     <body>
             @include('includes.header')
-            
-            @yield('content')
+			
+			<div id="app">
+            	@yield('content')
+			</div>
 
             @include('includes.footer')
-        </div>
+		</div>
     </body>
 </html>

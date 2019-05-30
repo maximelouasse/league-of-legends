@@ -21,33 +21,35 @@ class CreateChampionsTable extends Migration
 		
 		Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('key', 64);
             $table->timestamps();
-            $table->string('name', 255);
+            $table->string('name', 64);
 		});
 		
 		Schema::create('summoner_spells', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('name', 255);
+            $table->string('name', 64);
 		});
 		
 		Schema::create('skills', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('name', 255);
+            $table->string('key', 64);
+            $table->string('name', 64);
+			$table->unsignedInteger('champion_id')->nullable();
+			$table->foreign('champion_id')->references('id')->on('champions')->onDelete('cascade');
 		});
 		
 		Schema::create('champions', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-			$table->string('name', 255);
-			$table->unsignedInteger('skill_id')->nullable();
-			$table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
+			$table->string('name', 64);
 			$table->unsignedInteger('avatar_id')->nullable();
             $table->foreign('avatar_id')->references('id')->on('avatars')->onDelete('cascade');
 		});
 		
-		Schema::create('champions_list_items', function(Blueprint $table)
+		Schema::create('champion_item', function(Blueprint $table)
 		{
 			$table->integer('champion_id')->unsigned()->nullable();
 			$table->foreign('champion_id')->references('id')->on('champions')->onDelete('cascade');
@@ -56,7 +58,7 @@ class CreateChampionsTable extends Migration
 			$table->timestamps();
 		});
 
-		Schema::create('champions_list_spells', function(Blueprint $table)
+		Schema::create('champion_spell', function(Blueprint $table)
 		{
 			$table->integer('champion_id')->unsigned()->nullable();
 			$table->foreign('champion_id')->references('id')->on('champions')->onDelete('cascade');
