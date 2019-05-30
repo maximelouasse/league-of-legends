@@ -1,3 +1,3 @@
 <footer>
-    Footer League of Legends
+    <p>Footer League of Legends</p>
 </footer>

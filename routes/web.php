@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', 'ChampionController@getAllChampions');
+Route::get('/', function () {
+    return view('pages/home', [
+        'title' => 'Accueil'
+    ]);
+});
+
+Route::get('/champions', 'ChampionController@getAllChampions');
 
 Route::get('/champions/{name_champion}', 'ChampionController@getChampionDetail');
