@@ -1,20 +1,15 @@
 <header>
+    <img src="{{ asset('img/logo.png') }}" alt="">
     <nav>
         <ul>
-            <li>
-                <a href="/">Accueil</a>
-			</li>
-			<li>
-                <a href="/champions">Champions</a>
-			</li>
-			<li>
-                <a href="/items">Objets</a>
-			</li>
-			<li>
-                <a href="/summoner_spells">Summomer Spells</a>
-			</li>
-			<li>
-                <a href="/skills">Skills</a>
+            <li class="{{ Request::path() == '/' ? 'active' : '' }}">
+                <a href="{{ url('/') }}">Accueil</a>
+            </li>
+            <li class="{{ Request::path() == 'champions' ? 'active' : '' }}">
+                <a href="{{ url('champions') }}">Champions</a>
+            </li>
+            <li class="{{ Request::path() == 'items' ? 'active' : '' }}">
+                <a href="{{ url('items') }}">Items</a>
             </li>
         </ul>
     </nav>

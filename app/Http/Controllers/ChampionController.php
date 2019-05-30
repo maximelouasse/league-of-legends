@@ -41,7 +41,24 @@ class ChampionController extends Controller
 		];
 		
 		return response()->view('pages.champions', ['list_champions' => $champions, 'pagination' => $pagination]);
-    }
+	}
+
+    // function getAllChampions() {
+    //     return response()->view('pages.champions', [
+    //       'title' => 'Champions'
+    //     ]);
+    // }
+
+    // function getChampionDetail( $name_champion ) {
+    //   $client = new Client();
+    //   $res = $client->request('GET', 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/' . $name_champion . '.json');
+    //   $result = $res->getBody()->getContents();
+    //   //var_dump(json_decode($result)->data->$name_champion->title);
+    //   return response()->view('pages.championDetail', [
+    //     'title' => json_decode($result)->data->$name_champion->name,
+    //     'title_champion' => json_decode($result)->data->$name_champion->name
+    //   ]);
+    // }
 
     function getChampionDetail($championId) {
 		$champion = Champion::find($championId);

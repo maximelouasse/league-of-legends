@@ -3,7 +3,7 @@
     <head>
 		@include('includes.head')
     </head>
-    <body>
+    <body id="{{ $title }}">
             @include('includes.header')
 			
 			<div id="app">
@@ -12,5 +12,13 @@
 
             @include('includes.footer')
 		</div>
+            
+            <main>
+            @yield('content')
+            </main>
+
+            @include('includes.footer')
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <!-- <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script> -->
     </body>
 </html>

@@ -14,6 +14,11 @@
 // Avatar
 Route::get('/avatars', 'AvatarController@getAllAvatars');
 Route::get('/avatars/{id_avatar}', 'AvatarController@getAvatarDetail');
+Route::get('/', function () {
+    return view('pages/home', [
+        'title' => 'Accueil'
+    ]);
+});
 
 // Champion
 Route::get('/champions', 'ChampionController@getAllChampions');
