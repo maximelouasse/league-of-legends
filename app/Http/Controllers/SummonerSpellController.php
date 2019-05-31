@@ -33,7 +33,7 @@ class SummonerSpellController extends Controller
             ]
 		];
 
-		return response()->view('pages.summoner_spells', ['list_summoner_spells' => $summoner_spells, 'pagination' => $pagination]);
+		return response()->view('pages.summoner_spells', ['title' => 'Summoner Spells', 'list_summoner_spells' => $summoner_spells, 'pagination' => $pagination]);
 	}
 	
 	function getSummonerSpellDetail($summonerSpellId) {
@@ -51,7 +51,7 @@ class SummonerSpellController extends Controller
 				$result = $one_data;
 		}
 
-		return response()->view('pages.detail_summoner_spell', ['info_summoner_spell' => $result]);
+		return response()->view('pages.detail_summoner_spell', ['title' => $result->name, 'info_summoner_spell' => $result]);
 	}
 
 	function store(Request $request)

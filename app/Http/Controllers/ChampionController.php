@@ -27,7 +27,7 @@ class ChampionController extends Controller
 	}
 
     function getAllChampions() {
-		$champions = Champion::paginate(5);
+		$champions = Champion::paginate(10);
 
 		$pagination = [
 			'pagination' => [
@@ -40,7 +40,13 @@ class ChampionController extends Controller
             ]
 		];
 		
-		return response()->view('pages.champions', ['list_champions' => $champions, 'pagination' => $pagination]);
+		foreach($champions as $champion)
+		{
+			$avatar = Avatar::find($champion->avatar_id);
+			$champion->avatar_url = $avatar->url;
+		}
+
+		return response()->view('pages.champions', ['title' => 'Champions', 'list_champions' => $champions, 'pagination' => $pagination]);
 	}
 
     // function getAllChampions() {
@@ -73,7 +79,7 @@ class ChampionController extends Controller
 
 		$result = $this->callApi($nameChampion);
 
-		return response()->view('pages.detail_champion', ['info_champion' => $result->$nameChampion, 'list_items' => $champion->items()->get(), 'avatar_url' => $avatar_url]);
+		return response()->view('pages.detail_champion', ['title' => $champion->name , 'info_champion' => $result->$nameChampion, 'list_items' => $champion->items()->get(), 'avatar_url' => $avatar_url]);
 	}
 	
 	function store(Request $request)
@@ -147,13 +153,13 @@ class ChampionController extends Controller
 
 	function formAddChampion()
 	{
-		return response()->view('pages.add_champion', ['list_items' => Item::all()]);
+		return response()->view('pages.add_champion', ['title' => 'Ajouter un champion', 'list_items' => Item::all()]);
 	}
 
 	function edit($championId)
 	{
 		$champion = Champion::find($championId);
 
-		return view('pages.edit_champion', ['id_champion' => $championId, 'info_champion' => $champion, 'items_champion' => $champion->items()->get(), 'list_items' => Item::all()]);
+		return view('pages.edit_champion', ['title' => 'Modifier ' .$champion->name, 'id_champion' => $championId, 'info_champion' => $champion, 'items_champion' => $champion->items()->get(), 'list_items' => Item::all()]);
 	}
 }

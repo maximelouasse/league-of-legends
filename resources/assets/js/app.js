@@ -2,11 +2,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('list-champions', require('./components/ListChampions.vue'));
 
-Vue.component('listChampions', require('./components/ListChampions.vue'));
-
-Vue.component('list-champions', {
+Vue.component('list-champions-old', {
 	props: [
 	  'champion'
 	],
@@ -84,6 +82,7 @@ const app = new Vue({
 			else
 			{
 				axios.post('/champions/store', { name_champion: name_champion, list_items: [item_0, item_1, item_2, item_3, item_4, item_5] }).then(response => {
+					console.log(response);
 					if(response.data.error)
 					{
 						app.reponse_message = 'Le champion existe déjà';

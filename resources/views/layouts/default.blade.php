@@ -2,19 +2,15 @@
 <html>
     <head>
 		@include('includes.head')
-    </head>
+	</head>
+
     <body id="{{ $title }}">
             @include('includes.header')
-			
-			<div id="app">
-            	@yield('content')
-			</div>
-
-            @include('includes.footer')
-		</div>
-            
+		    
             <main>
-            @yield('content')
+				<div id="app">
+					@yield('content')
+				</div>
             </main>
 
             @include('includes.footer')

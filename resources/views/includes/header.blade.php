@@ -10,6 +10,12 @@
             </li>
             <li class="{{ Request::path() == 'items' ? 'active' : '' }}">
                 <a href="{{ url('items') }}">Items</a>
+			</li>
+			<li class="{{ Request::path() == 'summoner_spells' ? 'active' : '' }}">
+                <a href="{{ url('summoner_spells') }}">Summoner Spells</a>
+			</li>
+			<li class="{{ Request::path() == 'skills' ? 'active' : '' }}">
+                <a href="{{ url('skills') }}">skills</a>
             </li>
         </ul>
     </nav>

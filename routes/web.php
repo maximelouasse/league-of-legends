@@ -11,18 +11,14 @@
 |
 */
 
+Route::get('/', function () { return view('pages.home', [ 'title' => 'Accueil' ]); });
+
 // Avatar
 Route::get('/avatars', 'AvatarController@getAllAvatars');
 Route::get('/avatars/{id_avatar}', 'AvatarController@getAvatarDetail');
-Route::get('/', function () {
-    return view('pages/home', [
-        'title' => 'Accueil'
-    ]);
-});
 
 // Champion
 Route::get('/champions', 'ChampionController@getAllChampions');
-Route::get('/', function() { return view('pages.home'); });
 Route::get('/champions/add', 'ChampionController@formAddChampion');
 Route::post('/champions/store', 'ChampionController@store');
 Route::get('/champions/edit/{idChampion}', 'ChampionController@edit');
@@ -32,8 +28,7 @@ Route::post('/champions/delete/{idChampion}', 'ChampionController@delete');
 
 // Item
 Route::get('/items', 'ItemController@getAllItems');
-// Route::get('/items', function() { return view('pages.items'); });
-Route::get('/items/add', function() { return view('pages.add_item'); });
+Route::get('/items/add', function() { return view('pages.add_item', ['title' => 'Ajouter un item']); });
 Route::post('/items/store', 'ItemController@store');
 Route::get('/items/edit/{idItem}', function($idItem) { return view('pages.edit_item', ['id_item' => $idItem]); });
 Route::post('/items/update', 'ItemController@update');
@@ -46,7 +41,7 @@ Route::get('/skills/{name_skill}', 'SkillController@getSkillDetail');
 
 // Summoner Spell
 Route::get('/summoner_spells', 'SummonerSpellController@getAllSummonerSpells');
-Route::get('/summoner_spells/add', function() { return view('pages.add_summoner_spells'); });
+Route::get('/summoner_spells/add', function() { return view('pages.add_summoner_spells', ['title' => 'Ajouter un summoner spell']); });
 Route::get('/summoner_spells/{name_summoner_spell}', 'SummonerSpellController@getSummonerSpellDetail');
 Route::post('/summoner_spells/store', 'SummonerSpellController@store');
 Route::post('/summoner_spells/delete/{idSummonerSpell}', 'SummonerSpellController@delete');

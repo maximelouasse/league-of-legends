@@ -2,7 +2,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.component('list-items', {
+Vue.component('list-items', require('./components/ListItems.vue'));
+
+Vue.component('list-items-old', {
 	props: [
 	  'item'
 	],
