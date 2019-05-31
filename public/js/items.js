@@ -44750,7 +44750,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("li", [
-    _c("a", { attrs: { href: "" } }, [
+    _c("a", { attrs: { href: "/items/" + _vm.item.key } }, [
       _c("img", {
         attrs: {
           src:

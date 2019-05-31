@@ -1,6 +1,6 @@
 <template>
 	<li>
-		<a href="">
+		<a :href="'/items/' + item.key">
 			<img v-bind:src="'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/' + item.key + '.png'" alt="" />
 			<p>{{ item.name }}</p>
 		</a>

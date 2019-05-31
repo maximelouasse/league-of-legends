@@ -4,81 +4,78 @@
 	<h1>Liste des skills</h1>
 
 	<section>
-        <!-- TEMPLATE SKILLS A SUPPRIMER -->
 		<ul>
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="">
-					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
-					<p>Bénédiction stellaire</p>
-				</a>
-			</li>
-        </ul>
-        <!-- TEMPLATE SKILLS A SUPPRIMER -->
-
-
-		<!--<ul>
 			@foreach ($list_skills as $skill)
-				<li>
-					<list-skills :skill="{{ $skill }}" :champion="{{ $skill->champions }}"></list-skills>
-				</li>
+				<list-skills :skill="{{ $skill }}" :champion="{{ $skill->champions }}"></list-skills>
 			@endforeach
-		</ul>-->
+		</ul>
+
+        <!-- TEMPLATE SKILLS A SUPPRIMER -->
+		<!-- <ul>
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+					<p>Bénédiction stellaire</p>
+				</a>
+			</li>
+        </ul> -->
+        <!-- TEMPLATE SKILLS A SUPPRIMER -->
 	</section>
 
 	<ul class="pagination">

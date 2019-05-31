@@ -5,8 +5,13 @@
 	<a href="/summoner_spells/add" class="button_creation">+ Nouveau</a>
 
 	<section>
-        <!-- TEMPLATE SUMMONER SPELLS A SUPPRIMER -->
 		<ul>
+			@foreach ($list_summoner_spells as $summoner_spell)
+				<list-summoner-spells :summoner_spell="{{ $summoner_spell }}"></list-summoner-spells>
+			@endforeach
+		</ul>
+        <!-- TEMPLATE SUMMONER SPELLS A SUPPRIMER -->
+		<!-- <ul>
 			<li>
 				<a href="">
 					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerExhaust.png" alt="">
@@ -87,7 +92,7 @@
 				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
 				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
 			</li>
-        </ul>
+        </ul> -->
         <!-- TEMPLATE SUMMONER SPELLS A SUPPRIMER -->
         
 		<!--<ul>

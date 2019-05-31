@@ -1,10 +1,13 @@
 <header>
-    <img src="{{ asset('img/logo.png') }}" alt="">
-    <nav>
+	<a href="{{ url('/') }}">
+    	<img src="{{ asset('img/lol-logo.png') }}" alt="">
+	</a>
+
+	<nav>
         <ul>
-            <li class="{{ Request::path() == '/' ? 'active' : '' }}">
+            <!-- <li class="{{ Request::path() == '/' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">Accueil</a>
-            </li>
+            </li> -->
             <li class="{{ Request::path() == 'champions' ? 'active' : '' }}">
                 <a href="{{ url('champions') }}">Champions</a>
             </li>

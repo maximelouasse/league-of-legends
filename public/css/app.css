@@ -51,6 +51,7 @@ ul {
 */
 
 header {
+  position: relative;
   padding: 20px 100px;
   overflow: hidden;
   background-color: #202020;
@@ -60,16 +61,18 @@ header {
 }
 
 header img {
-  width: 50px;
+  width: 200px;
   float: left;
   vertical-align: middle;
   line-height: 50px;
 }
 
 header nav {
-  float: right;
-  vertical-align: middle;
-  line-height: 50px;
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 header nav ul li {
@@ -248,7 +251,7 @@ body#detailChampion div.backgroundChampion img {
 }
 
 body#detailChampion main {
-  padding-top: 275px;
+  padding-top: 100px;
 }
 
 body#detailChampion a.retour {
@@ -324,6 +327,11 @@ body#detailChampion ul.spells li img {
   float: left;
   margin-right: 50px;
   border-radius: 15px;
+}
+
+body#detailChampion ul.spells li div {
+  width: calc(100% - 114px);
+  padding-left: 115px;
 }
 
 body#detailChampion ul.spells li span {

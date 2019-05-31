@@ -1,9 +1,12 @@
 <template>
-    <span>{{ summoner_spell.name }}
-		<button v-on:click="getDetailSummonerSpell(summoner_spell)">Détail</button>
-		<button v-on:click="updateSummonerSpell(summoner_spell)">Modifer</button>
-		<button v-on:click="deleteSummonerSpell(summoner_spell)">Supprimer</button>
-	</span>
+	<li>
+		<a :href="'/summoner_spells/' + summoner_spell.id">
+			<img v-bind:src="'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/' + summoner_spell.key + '.png'" alt="">
+			<p>{{ summoner_spell.name }}</p>
+		</a>
+		<button v-on:click="updateSummonerSpell(summoner_spell)"><img :src="'/img/edit.png'" alt=""></button>
+		<button v-on:click="deleteSummonerSpell(summoner_spell)"><img :src="'/img/delete.png'" alt=""></button>
+	</li>
 </template>
 
 <script>

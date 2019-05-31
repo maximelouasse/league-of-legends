@@ -2,7 +2,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.component('list-skills', {
+Vue.component('list-skills', require('./components/ListSkills.vue'));
+
+Vue.component('list-skills-old', {
 	props: [
 	  'skill',
 	  'champion'
