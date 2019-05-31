@@ -9,9 +9,18 @@ use App\Skill;
 
 class SkillController extends Controller
 {
+	function callApi($nameChampion)
+	{
+		$client = new Client();
+		$res = $client->request('GET', 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/fr_FR/champion/' . $nameChampion . '.json');
+		$result = $res->getBody()->getContents();
+
+		return json_decode($result)->data;
+	}
+
 	function getAllSkills()
 	{
-		$skills = Skill::paginate(5);
+		$skills = Skill::paginate(10);
 
 		$pagination = [
 			'pagination' => [
@@ -31,18 +40,19 @@ class SkillController extends Controller
 	{
 		$skill = Skill::find($skillId);
 		$result = null;
-		// $data = $this->callApi();
+		$name_champion = $skill->champions->name;
+		$data = $this->callApi($name_champion);
 
-		// foreach($data as $one_data)
-		// {
-		// 	// var_dump($one_data->name, $summoner_spell->name);
-		// 	// var_dump($this->similarity($one_data->name, $summoner_spell->name));
-		// 	// die();
+		foreach($data->$name_champion->spells as $spell)
+		{
+			// var_dump($one_data->name, $summoner_spell->name);
+			// var_dump($this->similarity($one_data->name, $summoner_spell->name));
+			// die();
 
-		// 	if($one_data->name == $skill->name)
-		// 		$result = $one_data;
-		// }
+			if($spell->name == $skill->name)
+				$result = $spell;
+		}
 
-		return response()->view('pages.detail_skill', ['title' => $skill->name, 'info_skill' => $skill]);
+		return response()->view('pages.detail_skill', ['title' => $skill->name, 'info_skill' => $result]);
 	}
 }

@@ -59,7 +59,7 @@ const app = new Vue({
 				var name_item = submitEvent.target.elements.name.value;
 				var id_item = submitEvent.target.elements.id.value;
 
-				axios.post('/items/update', { name_item: name_item, id_item: id_item }).then(response => {
+				axios.put('/items/update', { name_item: name_item, id_item: id_item }).then(response => {
 					console.log(response);
 					if(response.data)
 					{

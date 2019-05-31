@@ -9,10 +9,6 @@
 			<input type="text" name="edit" value="false">
 		</div>
 
-		<div>
-			@{{ reponse_message }}
-		</div>
-
 		@for ($i = 0; $i < 6; $i++)
 			<select id="item_{{ $i }}" name="item_{{ $i }}">
 				@foreach ($list_items as $item)
@@ -21,8 +17,20 @@
 			</select>
 		@endfor
 
+		@for ($i = 0; $i < 2; $i++)
+			<select id="summoner_spell_{{ $i }}" name="summoner_spell_{{ $i }}">
+				@foreach ($list_summoner_spells as $summoner_spell)
+					<option value="{{ $summoner_spell->id }}">{{ $summoner_spell->name }}</option>
+				@endforeach
+			</select>
+		@endfor
+
 		<div class="form-group">
 			<button type="submit" >Ajouter</button>
+		</div>
+		
+		<div>
+			@{{ reponse_message }}
 		</div>
     </form>
 @stop

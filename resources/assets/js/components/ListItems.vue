@@ -12,7 +12,7 @@
 			'item'
 		],
         mounted() {
-            console.log('Component list champions mounted.')
+            console.log('Component list items mounted.')
 		},
 		methods: {
 			deleteItem: function(item) {

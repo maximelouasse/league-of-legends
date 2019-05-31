@@ -29,6 +29,24 @@
 			</select>
 		@endfor
 
+		@for ($i = 0; $i < 2; $i++)
+			<select id="summoner_spell_{{ $i }}" name="summoner_spell_{{ $i }}">
+				@foreach ($list_summoner_spells as $summoner_spell)
+					@php
+						if($summoner_spells_champion[$i]->id == $summoner_spell->id)
+						{
+							$selected = 'selected';
+						}
+						else
+						{
+							$selected = '';
+						}
+					@endphp
+					<option value="{{ $summoner_spell->id }}" {{ $selected }}>{{ $summoner_spell->name }}</option>
+				@endforeach
+			</select>
+		@endfor
+
 		<div class="form-group">
 			<button type="submit" >Modifier</button>
 		</div>

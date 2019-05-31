@@ -58,7 +58,7 @@ class CreateChampionsTable extends Migration
 			$table->timestamps();
 		});
 
-		Schema::create('champion_spell', function(Blueprint $table)
+		Schema::create('champion_summoner_spell', function(Blueprint $table)
 		{
 			$table->integer('champion_id')->unsigned()->nullable();
 			$table->foreign('champion_id')->references('id')->on('champions')->onDelete('cascade');

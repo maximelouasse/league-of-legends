@@ -21,7 +21,7 @@ class Champion extends Model
 		return $this->belongsToMany(Item::class)->withTimestamps();
 	}
 
-	public function summonerSpells()
+	public function spells()
 	{
 		return $this->belongsToMany(SummonerSpell::class)->withTimestamps();
 	}

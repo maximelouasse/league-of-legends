@@ -2,7 +2,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.component('list-summoner-spells', {
+Vue.component('list-summoner-spells', require('./components/ListSummonerSpells.vue'));
+
+Vue.component('list-summoner-spells-old', {
 	props: [
 	  'summoner_spell'
 	],
@@ -57,7 +59,7 @@ const app = new Vue({
 			{
 				var id_summoner_spell = submitEvent.target.elements.id.value;
 
-				axios.post('/summoner_spells/update', { name_summoner_spell: name_summoner_spell, id_summoner_spell: id_summoner_spell }).then(response => {
+				axios.put('/summoner_spells/update', { name_summoner_spell: name_summoner_spell, id_summoner_spell: id_summoner_spell }).then(response => {
 					console.log(response);
 					if(response.data)
 					{

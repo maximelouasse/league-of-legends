@@ -31,7 +31,7 @@ Route::get('/items', 'ItemController@getAllItems');
 Route::get('/items/add', function() { return view('pages.add_item', ['title' => 'Ajouter un item']); });
 Route::post('/items/store', 'ItemController@store');
 Route::get('/items/edit/{idItem}', function($idItem) { return view('pages.edit_item', ['id_item' => $idItem]); });
-Route::post('/items/update', 'ItemController@update');
+Route::put('/items/update', 'ItemController@update');
 Route::get('/items/{idItem}', 'ItemController@getItemDetail');
 Route::post('/items/delete/{idItem}', 'ItemController@delete');
 
@@ -46,4 +46,4 @@ Route::get('/summoner_spells/{name_summoner_spell}', 'SummonerSpellController@ge
 Route::post('/summoner_spells/store', 'SummonerSpellController@store');
 Route::post('/summoner_spells/delete/{idSummonerSpell}', 'SummonerSpellController@delete');
 Route::get('/summoner_spells/edit/{idSummonerSpell}', 'SummonerSpellController@edit');
-Route::post('/summoner_spells/update', 'SummonerSpellController@update');
+Route::put('/summoner_spells/update', 'SummonerSpellController@update');

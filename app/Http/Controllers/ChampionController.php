@@ -11,6 +11,7 @@ use App\Champion;
 use App\Item;
 use App\Avatar;
 use App\Skill;
+use App\SummonerSpell;
 use function GuzzleHttp\json_encode;
 
 // http://ddragon.leagueoflegends.com/cdn/6.24.1/data/fr_FR/champion.json
@@ -43,7 +44,10 @@ class ChampionController extends Controller
 		foreach($champions as $champion)
 		{
 			$avatar = Avatar::find($champion->avatar_id);
-			$champion->avatar_url = $avatar->url;
+			if($avatar != null)
+			{
+				$champion->avatar_url = $avatar->url;
+			}
 		}
 
 		return response()->view('pages.champions', ['title' => 'Champions', 'list_champions' => $champions, 'pagination' => $pagination]);
@@ -68,18 +72,26 @@ class ChampionController extends Controller
 
     function getChampionDetail($championId) {
 		$champion = Champion::find($championId);
-		$nameChampion = $champion->name;
 
-		$avatar = Avatar::find($champion->avatar_id);
+		if($champion != NULL)
+		{
+			$nameChampion = $champion->name;
 
-		$avatar_url = '';
+			$avatar = Avatar::find($champion->avatar_id);
 
-		if($avatar != NULL)
-			$avatar_url = $avatar->url;
+			$avatar_url = '';
 
-		$result = $this->callApi($nameChampion);
+			if($avatar != NULL)
+				$avatar_url = $avatar->url;
 
-		return response()->view('pages.detail_champion', ['title' => $champion->name , 'info_champion' => $result->$nameChampion, 'list_items' => $champion->items()->get(), 'avatar_url' => $avatar_url]);
+			$result = $this->callApi($nameChampion);
+
+			return response()->view('pages.detail_champion', ['title' => $champion->name , 'info_champion' => $result->$nameChampion, 'list_items' => $champion->items()->get(), 'list_summoner_spells' => $champion->spells()->get(), 'avatar_url' => $avatar_url]);
+		}
+		else
+		{
+			return response()->view('pages.detail_champion', ['title' => 'Erreur' , 'error' => true]);
+		}
 	}
 	
 	function store(Request $request)
@@ -109,6 +121,7 @@ class ChampionController extends Controller
 			$champion->avatar_id = $avatar->id;
 			$champion->save();
 			$champion->items()->attach($request->list_items);
+			$champion->spells()->attach($request->list_summoner_spells);
 
 			$result = $this->callApi($nameChampion);
 
@@ -133,6 +146,9 @@ class ChampionController extends Controller
 
 		$champion->items()->detach();
 		$champion->items()->attach($request->list_items);
+		
+		$champion->spells()->detach();
+		$champion->spells()->attach($request->list_summoner_spells);
 
 		return json_encode($champion);
 	}
@@ -145,6 +161,8 @@ class ChampionController extends Controller
 		{
 			$champion->avatar()->delete();
 			$champion->skill()->delete();
+			$champion->items()->detach();
+			$champion->spells()->detach();
 			$champion->delete();
 		}
 		
@@ -153,13 +171,13 @@ class ChampionController extends Controller
 
 	function formAddChampion()
 	{
-		return response()->view('pages.add_champion', ['title' => 'Ajouter un champion', 'list_items' => Item::all()]);
+		return response()->view('pages.add_champion', ['title' => 'Ajouter un champion', 'list_items' => Item::all(), 'list_summoner_spells' => SummonerSpell::all()]);
 	}
 
 	function edit($championId)
 	{
 		$champion = Champion::find($championId);
 
-		return view('pages.edit_champion', ['title' => 'Modifier ' .$champion->name, 'id_champion' => $championId, 'info_champion' => $champion, 'items_champion' => $champion->items()->get(), 'list_items' => Item::all()]);
+		return view('pages.edit_champion', ['title' => 'Modifier ' .$champion->name, 'id_champion' => $championId, 'info_champion' => $champion, 'items_champion' => $champion->items()->get(), 'summoner_spells_champion' => $champion->spells()->get(), 'list_items' => Item::all(), 'list_summoner_spells' => SummonerSpell::all()]);
 	}
 }
