@@ -30,6 +30,7 @@ class CreateChampionsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name', 64);
+            $table->string('key', 64);
 		});
 		
 		Schema::create('skills', function (Blueprint $table) {

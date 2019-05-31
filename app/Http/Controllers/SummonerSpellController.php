@@ -57,6 +57,7 @@ class SummonerSpellController extends Controller
 	function store(Request $request)
 	{
 		$summonerSpellExist = SummonerSpell::where('name', '=', $request->name_summoner_spell);
+		$data = $this->callApi();
 
 		if($summonerSpellExist->exists() === true)
 		{
@@ -68,6 +69,13 @@ class SummonerSpellController extends Controller
 
 			$summonerSpell = new SummonerSpell();
 			$summonerSpell->name = $nameSummonerSpell;
+
+			foreach($data as $spell)
+			{
+				if($spell->name == $summonerSpell->name)
+					$summonerSpell->key = $spell->id;
+			}
+
 			$summonerSpell->save();
 
 			return $summonerSpell;

@@ -1,3 +1,5 @@
 <footer>
-    <p>Footer League of Legends</p>
+	<a href="">
+		<img src="{{ asset('img/white-logo-riot.png') }}" alt="">
+	</a>
 </footer>
