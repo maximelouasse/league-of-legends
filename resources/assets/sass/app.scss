@@ -421,8 +421,9 @@ body#items, body#summonerSpells, body#skills {
         text-align: center;
         ul {
             li {
-                width: calc( (100% / 6) );
-                float: left;
+                width: calc(100% / 7);
+				display: inline-block;
+				vertical-align: middle;
                 margin: 30px 10px;
                 a{
                     display: block;

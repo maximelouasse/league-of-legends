@@ -8,4 +8,3 @@
 @yield('specificscripts')
 
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->

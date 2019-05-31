@@ -4,8 +4,6 @@
 			<img v-bind:src="'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/' + skill.key + '.png'" alt="">
 			<p>{{ champion.name }} - {{ skill.name }}</p>
 		</a>
-		<!-- <button v-on:click="updateSkill(skill)"><img :src="'/img/edit.png'" alt=""></button>
-		<button v-on:click="deleteSkill(skill)"><img :src="'/img/delete.png'" alt=""></button> -->
 	</li>
 </template>
 

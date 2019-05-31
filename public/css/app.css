@@ -482,8 +482,9 @@ body#skills section {
 body#items section ul li,
 body#summonerSpells section ul li,
 body#skills section ul li {
-  width: calc( (100% / 6));
-  float: left;
+  width: calc(100% / 7);
+  display: inline-block;
+  vertical-align: middle;
   margin: 30px 10px;
 }
 

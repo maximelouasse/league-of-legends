@@ -4,22 +4,6 @@ window.Vue = require('vue');
 
 Vue.component('list-skills', require('./components/ListSkills.vue'));
 
-Vue.component('list-skills-old', {
-	props: [
-	  'skill',
-	  'champion'
-	],
-	template: '<span>{{ skill.name }} - {{ champion.name }}<button v-on:click="getDetailSkill(skill)">Détail</button></span>',
-	mounted: function() {
-		this.$parent.skills.push(this.skill);
-	},
-	methods: {
-		getDetailSkill: function(skill) {
-			window.location.href = '/skills/' + skill.id;
-		}
-	}
-});
-
 const app = new Vue({
 	el: '#app',	
 	data () {

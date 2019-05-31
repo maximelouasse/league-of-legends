@@ -109,12 +109,7 @@ class ChampionController extends Controller
 			return json_encode(['error' => true]);
 		}
 		else
-		{
-			// Validation
-			/*$this->validate($request, [
-				'name' => 'required|min:2'
-			]);*/
-			
+		{			
 			$nameChampion = $request->name_champion;
 			
 			$champion = new Champion();

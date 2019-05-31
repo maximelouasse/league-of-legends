@@ -5,9 +5,6 @@
 
 	<nav>
         <ul>
-            <!-- <li class="{{ Request::path() == '/' ? 'active' : '' }}">
-                <a href="{{ url('/') }}">Accueil</a>
-            </li> -->
             <li class="{{ Request::path() == 'champions' ? 'active' : '' }}">
                 <a href="{{ url('champions') }}">Champions</a>
             </li>

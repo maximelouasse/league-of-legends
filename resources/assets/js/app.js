@@ -4,37 +4,6 @@ window.Vue = require('vue');
 
 Vue.component('list-champions', require('./components/ListChampions.vue'));
 
-Vue.component('list-champions-old', {
-	props: [
-	  'champion'
-	],
-	template: '<span>{{ champion.name }}<button v-on:click="getDetailChampion(champion)">Détail</button><button v-on:click="updateChampion(champion)">Modifer</button><button v-on:click="deleteChampion(champion)">Supprimer</button></span>',
-	mounted: function() {
-		this.$parent.champions.push(this.champion);
-	},
-	methods: {
-		deleteChampion: function(item) {
-			axios.post('/champions/delete/' + item).then(function (response) {
-				if(response.status === 200)
-				{
-					app.champions.forEach(function(element, index) {
-						if(element.id == item)
-						{
-							app.champions.splice(index, 1);
-						}
-					});
-				}
-			});
-		},
-		getDetailChampion: function(item) {
-			window.location.href = '/champions/' + item.id;
-		},
-		updateChampion: function(item) {
-			window.location.href = '/champions/edit/' + item.id;
-		}
-	}
-});
-
 const app = new Vue({
 	el: '#app',	
 	data () {
