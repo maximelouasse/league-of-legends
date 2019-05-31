@@ -23,6 +23,7 @@ Vue.component('list-summoner-spells-old', {
 							app.summoner_spells.splice(index, 1);
 						}
 					});
+					location.reload();
 				}
 			});
 		},

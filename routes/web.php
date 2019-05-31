@@ -38,12 +38,7 @@ Route::get('/items/add', function() { return view('pages.add_item', [
     ]); 
 });
 Route::post('/items/store', 'ItemController@store');
-Route::get('/items/edit/{idItem}', function($idItem) { return view('pages.edit_item', [
-    'title' => 'Modification de l\'item ' . $idItem,
-    'idCss' => 'editItem',
-    'id_item' => $idItem
-    ]); 
-});
+Route::get('/items/edit/{idItem}', 'ItemController@edit');
 Route::post('/items/update', 'ItemController@update');
 Route::get('/items/{idItem}', 'ItemController@getItemDetail');
 Route::post('/items/delete/{idItem}', 'ItemController@delete');

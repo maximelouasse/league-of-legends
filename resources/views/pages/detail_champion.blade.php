@@ -11,8 +11,8 @@
 		<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{ $info_champion->name }}.png" alt="">
 		<h1>{{ $info_champion->name }} <br><span>{{ $info_champion->title }}</span></h1>
 		<div>
-			<a href=""><img src="{{ asset('img/edit.png') }}" alt=""></a>
-			<a href=""><img src="{{ asset('img/delete.png') }}" alt=""></a>
+			<button v-on:click="updateChampion({{ $id_champion }})"><img src="{{ asset('img/edit.png') }}" alt=""></button>
+			<button v-on:click="deleteChampion({{ $id_champion }})"><img src="{{ asset('img/delete.png') }}" alt=""></button>
 		</div>
 	</div>
 
@@ -48,4 +48,8 @@
 		<li><img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/{{ $summoner_spell->key }}.png" alt=""><a href="/summoner_spells/{{ $summoner_spell->id }}">{{ $summoner_spell->name }}</a></li>
 		@endforeach
 	</ul>
+@stop
+
+@section('specificscripts')
+    <script src="{{ mix('js/app.js') }}" defer></script>
 @stop

@@ -51,7 +51,8 @@ class ItemController extends Controller
 		return response()->view('pages.detail_item', [
 			'title' => $data->$itemKey->name,
 			'idCss' => 'detailItem', 
-			'info_item' => $data->$itemKey
+			'info_item' => $data->$itemKey,
+			'key_item' => $itemKey
 		]);
 	}
 	
@@ -66,9 +67,9 @@ class ItemController extends Controller
 		else
 		{
 			// Validation
-			/*$this->validate($request, [
-				'name' => 'required|min:2'
-			]);*/
+			$this->validate($request, [
+				'name_item' => 'required|min:2'
+			]);
 			
 			$client = new Client();
 			$res = $client->request('GET', 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/fr_FR/item.json');
@@ -107,5 +108,17 @@ class ItemController extends Controller
 		}
 		
 		return redirect('/items');
+	}
+
+	function edit($idItem)
+	{
+		$item = Item::find($idItem);
+
+		return view('pages.edit_item', [
+			'title' => 'Modification de l\'item ' . $idItem,
+			'idCss' => 'editItem',
+			'id_item' => $idItem,
+			'name_item' => $item->name
+		]);
 	}
 }

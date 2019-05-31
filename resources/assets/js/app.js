@@ -14,16 +14,15 @@ Vue.component('list-champions-old', {
 	},
 	methods: {
 		deleteChampion: function(item) {
-			axios.post('/champions/delete/' + item.id).then(function (response) {
+			axios.post('/champions/delete/' + item).then(function (response) {
 				if(response.status === 200)
 				{
 					app.champions.forEach(function(element, index) {
-						if(element.id == item.id)
+						if(element.id == item)
 						{
 							app.champions.splice(index, 1);
 						}
 					});
-					location.reload();
 				}
 			});
 		},
@@ -45,6 +44,7 @@ const app = new Vue({
 		}
 	},
 	mounted () {
+		console.log('Mounted app');
 		// axios.get('/champions').then(function (response) {
 		// 	console.log(response.data.pagination);
 		// 	console.log(response.data.champions);
@@ -96,17 +96,20 @@ const app = new Vue({
 				});
 			}
 		},
+		updateChampion: function(item) {
+			window.location.href = '/champions/edit/' + item;
+		},
 		deleteChampion: function(item) {
-			axios.post('/champions/delete/' + item.id).then(function (response) {
+			axios.post('/champions/delete/' + item).then(function (response) {
 				if(response.status === 200)
 				{
 					app.champions.forEach(function(element, index) {
-						if(element.id == item.id)
+						if(element.id == item)
 						{
 							app.champions.splice(index, 1);
 						}
 					});
-					location.reload();
+					window.location.href = '/champions';
 				}
 			});
 		},

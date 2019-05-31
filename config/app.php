@@ -161,7 +161,8 @@ return [
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
-        Illuminate\View\ViewServiceProvider::class,
+		Illuminate\View\ViewServiceProvider::class,
+		// L5Swagger\L5SwaggerServiceProvider::class,
 
         /*
          * Package Service Providers...

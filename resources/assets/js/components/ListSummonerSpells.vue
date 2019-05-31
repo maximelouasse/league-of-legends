@@ -28,6 +28,7 @@
 								app.summoner_spells.splice(index, 1);
 							}
 						});
+						location.reload();
 					}
 				});
 			},

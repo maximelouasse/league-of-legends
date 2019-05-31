@@ -20,7 +20,7 @@ class SkillController extends Controller
 
 	function getAllSkills()
 	{
-		$skills = Skill::paginate(10);
+		$skills = Skill::paginate(18);
 
 		$pagination = [
 			'pagination' => [
@@ -50,10 +50,6 @@ class SkillController extends Controller
 
 		foreach($data->$name_champion->spells as $spell)
 		{
-			// var_dump($one_data->name, $summoner_spell->name);
-			// var_dump($this->similarity($one_data->name, $summoner_spell->name));
-			// die();
-
 			if($spell->name == $skill->name)
 				$result = $spell;
 		}

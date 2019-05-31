@@ -86,7 +86,8 @@ class ChampionController extends Controller
 			return response()->view('pages.detail_champion', [
 				'title' => 'detail'.$champion->name, 
 				'idCss'=>'detailChampion',
-				'info_champion' => $result->$nameChampion, 
+				'info_champion' => $result->$nameChampion,
+				'id_champion' => $champion->id,
 				'list_items' => $champion->items()->get(),
 				'list_summoner_spells' => $champion->spells()->get(),
 				'avatar_url' => $avatar_url

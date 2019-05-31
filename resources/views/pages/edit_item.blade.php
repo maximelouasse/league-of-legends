@@ -5,7 +5,7 @@
 	<form action="{{ url('/items/store') }}" method="POST" @submit.prevent="onSubmit(event)">
 		<div class="form-group">
 			<label>Nom</label>
-			<input type="text" name="name">
+			<input type="text" name="name" value="{{ $name_item }}">
 			<input type="hidden" name="id" value="{{ $id_item }}">
 			<input type="hidden" name="edit" value="true">
 		</div>

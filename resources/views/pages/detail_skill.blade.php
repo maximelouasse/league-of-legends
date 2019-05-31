@@ -5,7 +5,7 @@
 
 	<h1>{{ $info_skill->name }}</h1>
 	<section>
-		<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/TaricQ.png" alt="">
+		<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/{{ $info_skill->id }}.png" alt="">
 		<p>{!! $info_skill->description !!}</p>
 	</section>
 @stop

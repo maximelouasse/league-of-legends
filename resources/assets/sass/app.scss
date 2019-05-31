@@ -278,14 +278,13 @@ body#detailChampion {
         div{
             float:right;
             margin-top: -30px;
-            a {
+            button {
                 background-color: #2c66bf;
                 border: none;
                 padding: 5px;
                 border-radius: 100%;
                 margin: 0 5px;
                 cursor: pointer;
-                display: inline-block;
                 img{
                     margin: 0;
                     width: 20px;
@@ -293,7 +292,7 @@ body#detailChampion {
                     vertical-align: middle;
                     box-shadow: none;
                 }
-            }
+			}
         }
         
     }
@@ -448,10 +447,14 @@ body#detailItem, body#detailSummonerSpell, body#detailSkill{
     }
     section {
         p {
-            color: #8A8D91;
+			display: inline-block;
+			color: #8A8D91;
+			margin-left: 50px;
+			vertical-align: middle;
         }
         img {
-            border-radius: 15px;
+			border-radius: 15px;
+			vertical-align: middle;
         }
     }
 }
