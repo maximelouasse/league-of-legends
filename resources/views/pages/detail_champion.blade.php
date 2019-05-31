@@ -5,8 +5,11 @@
 
 	<div class="infoHeader">
 		<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{ $info_champion->name }}.png" alt="">
+		<h1>{{ $info_champion->name }} <br><span>{{ $info_champion->title }}</span></h1>
 		<div>
 			<h1>{{ $info_champion->name }} - <span>{{ $info_champion->title }}</span></h1>
+			<a href=""><img src="{{ asset('img/edit.png') }}" alt=""></a>
+			<a href=""><img src="{{ asset('img/delete.png') }}" alt=""></a>
 		</div>
 	</div>
 
