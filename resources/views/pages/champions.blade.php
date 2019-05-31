@@ -9,7 +9,19 @@
 		@endforeach
 	</section>
 
-	{{ $list_champions->render() }}
+    <ul class="pagination">
+        <li class="{{ ($list_champions->currentPage() == 1) ? ' disabled' : '' }}">
+            <a href="{{ $list_champions->url(1) }}"><</a>
+        </li>
+        @for ($i = 1; $i <= $list_champions->lastPage(); $i++)
+            <li class="{{ ($list_champions->currentPage() == $i) ? ' active' : '' }}">
+                <a href="{{ $list_champions->url($i) }}">{{ $i }}</a>
+            </li>
+        @endfor
+        <li class="{{ ($list_champions->currentPage() == $list_champions->lastPage()) ? ' disabled' : '' }}">
+            <a href="{{ $list_champions->url($list_champions->currentPage()+1) }}" >></a>
+        </li>
+    </ul>
 @stop
 
 @section('specificscripts')

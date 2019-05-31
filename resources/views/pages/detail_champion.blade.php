@@ -1,16 +1,36 @@
 @extends('layouts.default')
 
 @section('content')
-	<h1>{{ $info_champion->name }} - {{ $info_champion->title }}</h1>
-	<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{ $avatar_url }}" alt="">
-	<p>{!! $info_champion->lore !!}</p>
+	<div class="backgroundChampion">
+		<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{ $avatar_url }}" alt="">
+	</div>
+	
+	<a class="retour" href="{{ url('champions') }}">< Retour aux champions</a>
 
+	<div class="infoHeader">
+		<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{ $info_champion->name }}.png" alt="">
+		<div>
+			<h1>{{ $info_champion->name }} <span>{{ $info_champion->title }}</span></h1>
+		</div>
+	</div>
 
-	@foreach ($info_champion->spells as $spell)
-        <li>{{ $spell->name }} : {!! $spell->description !!}<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/{{ $spell->image->full }}" alt=""></li>
-	@endforeach
+	<h3>Description</h3>
+	
+	<p class="description">{!! $info_champion->lore !!}</p>
 
-	@foreach ($list_items as $item)
-        <li>{{ $item->name }}</li>
-	@endforeach
+	<h3>Skills</h3>
+
+	<ul class="spells">
+		@foreach ($info_champion->spells as $spell)
+		<li><img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/{{ $spell->image->full }}" alt=""><span>{{ $spell->name }}</span><br>{!! $spell->description !!}</li>
+		@endforeach
+	</ul>
+
+	<h3>Items</h3>
+
+	<ul class="items">
+		@foreach ($list_items as $item)
+		<li>{{ $item->name }}</li>
+		@endforeach
+	</ul>
 @stop

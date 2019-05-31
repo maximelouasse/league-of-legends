@@ -79,7 +79,7 @@ class ChampionController extends Controller
 
 		$result = $this->callApi($nameChampion);
 
-		return response()->view('pages.detail_champion', ['title' => $champion->name , 'info_champion' => $result->$nameChampion, 'list_items' => $champion->items()->get(), 'avatar_url' => $avatar_url]);
+		return response()->view('pages.detail_champion', ['title' => 'detail'.$champion->name , 'info_champion' => $result->$nameChampion, 'list_items' => $champion->items()->get(), 'avatar_url' => $avatar_url]);
 	}
 	
 	function store(Request $request)
