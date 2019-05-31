@@ -60,7 +60,7 @@ class SkillController extends Controller
 
 		return response()->view('pages.detail_skill', [
 			'title' => $skill->name, 
-			'idCss' => 'detailItem',
+			'idCss' => 'detailSkill',
 			'info_skill' => $result
 		]);
 	}

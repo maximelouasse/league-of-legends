@@ -314,30 +314,52 @@ body#detailChampion p.description {
   text-align: justify;
 }
 
-body#detailChampion ul.spells li {
+body#detailChampion ul.skills li {
   overflow: hidden;
   margin: 20px 0;
   text-align: justify;
 }
 
-body#detailChampion ul.spells li img {
+body#detailChampion ul.skills li img {
   float: left;
   margin-right: 50px;
   border-radius: 15px;
 }
 
-body#detailChampion ul.spells li span {
+body#detailChampion ul.skills li span {
   color: #FFF;
   font-weight: 600;
 }
 
 body#detailChampion ul.items {
   text-align: center;
+  overflow: hidden;
 }
 
 body#detailChampion ul.items li {
   float: left;
   width: calc( 100% / 6);
+}
+
+body#detailChampion ul.items li p {
+  color: #FFF;
+  font-weight: 600;
+}
+
+body#detailChampion ul.items li img {
+  border-radius: 15px;
+}
+
+body#detailChampion ul.spells li {
+  margin: 20px 0;
+  color: #FFF;
+  font-weight: 600;
+}
+
+body#detailChampion ul.spells li img {
+  border-radius: 15px;
+  margin-right: 50px;
+  vertical-align: middle;
 }
 
 body#addChampion h1,
@@ -445,5 +467,31 @@ body#skills section ul li button img {
   width: 20px;
   height: 20px;
   vertical-align: middle;
+}
+
+body#detailItem h1,
+body#detailSummonerSpell h1,
+body#detailSkill h1 {
+  float: none;
+  margin-top: 50px;
+}
+
+body#detailItem a.retour,
+body#detailSummonerSpell a.retour,
+body#detailSkill a.retour {
+  color: #FFF;
+  font-weight: 600;
+}
+
+body#detailItem section p,
+body#detailSummonerSpell section p,
+body#detailSkill section p {
+  color: #8A8D91;
+}
+
+body#detailItem section img,
+body#detailSummonerSpell section img,
+body#detailSkill section img {
+  border-radius: 15px;
 }
 
