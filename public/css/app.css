@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);@charset "UTF-8";
 
 /*
     RESET
@@ -203,7 +202,7 @@ body#champions section div.card a {
 
 body#champions section div.card a span {
   position: absolute;
-  font-size: 30px;
+  font-size: 2.5rem;
   font-weight: bold;
   bottom: 25px;
   -webkit-transform: translateX(-50%);
@@ -252,7 +251,7 @@ body#detailChampion div.backgroundChampion img {
 }
 
 body#detailChampion main {
-  padding-top: 100px;
+  padding-top: 250px;
 }
 
 body#detailChampion a.retour {
@@ -276,12 +275,14 @@ body#detailChampion .infoHeader img {
 body#detailChampion .infoHeader h1 {
   float: none;
   font-size: 5rem;
+  color: #FFF;
 }
 
 body#detailChampion .infoHeader h1 span {
   font-weight: 100;
   font-size: 2.5rem;
   display: block;
+  color: #c8aa6e;
 }
 
 body#detailChampion .infoHeader div {
@@ -374,6 +375,7 @@ body#detailChampion ul.spells li img {
 body#addChampion h1,
 body#addItem h1,
 body#addSummonerSpell h1,
+body#editChampion h1,
 body#editItem h1,
 body#editSummonerSpell h1 {
   float: none;
@@ -383,16 +385,38 @@ body#editSummonerSpell h1 {
 body#addChampion form label,
 body#addItem form label,
 body#addSummonerSpell form label,
+body#editChampion form label,
 body#editItem form label,
 body#editSummonerSpell form label {
   color: #FFF;
   font-weight: 600;
+  margin-bottom: 20px;
+  display: block;
+}
+
+body#addChampion form div.form-group,
+body#addItem form div.form-group,
+body#addSummonerSpell form div.form-group,
+body#editChampion form div.form-group,
+body#editItem form div.form-group,
+body#editSummonerSpell form div.form-group {
+  overflow: hidden;
+}
+
+body#addChampion form div.form-group label,
+body#addItem form div.form-group label,
+body#addSummonerSpell form div.form-group label,
+body#editChampion form div.form-group label,
+body#editItem form div.form-group label,
+body#editSummonerSpell form div.form-group label {
+  display: inline-block;
   margin-right: 25px;
 }
 
 body#addChampion form input[type=text],
 body#addItem form input[type=text],
 body#addSummonerSpell form input[type=text],
+body#editChampion form input[type=text],
 body#editItem form input[type=text],
 body#editSummonerSpell form input[type=text] {
   border: none;
@@ -408,17 +432,35 @@ body#editSummonerSpell form input[type=text] {
 body#addChampion form select,
 body#addItem form select,
 body#addSummonerSpell form select,
+body#editChampion form select,
 body#editItem form select,
 body#editSummonerSpell form select {
+  color: #FFF;
   float: left;
   width: calc( (100% / 6) - 20px);
   margin: 0 10px;
   margin-bottom: 25px;
+  background-color: transparent;
+  border: none;
+  border: 2px solid #2c66bf;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+body#addChampion form select option,
+body#addItem form select option,
+body#addSummonerSpell form select option,
+body#editChampion form select option,
+body#editItem form select option,
+body#editSummonerSpell form select option {
+  background-color: #343434;
+  font-size: 1.5rem;
 }
 
 body#addChampion form button[type=submit],
 body#addItem form button[type=submit],
 body#addSummonerSpell form button[type=submit],
+body#editChampion form button[type=submit],
 body#editItem form button[type=submit],
 body#editSummonerSpell form button[type=submit] {
   border: none;
@@ -441,9 +483,15 @@ body#skills section {
 body#items section ul li,
 body#summonerSpells section ul li,
 body#skills section ul li {
-  width: calc( (100% / 6) - 20px);
+  width: calc( (100% / 6));
   float: left;
   margin: 30px 10px;
+}
+
+body#items section ul li a,
+body#summonerSpells section ul li a,
+body#skills section ul li a {
+  display: block;
 }
 
 body#items section ul li img,
