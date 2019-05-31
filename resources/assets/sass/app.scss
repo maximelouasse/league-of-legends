@@ -305,8 +305,7 @@ body#detailChampion {
     p.description {
         text-align: justify;
     }
-
-    ul.spells {
+    ul.skills {
         li {
             overflow: hidden;
             margin: 20px 0;
@@ -326,12 +325,31 @@ body#detailChampion {
             }
         }
     }
-
     ul.items {
         text-align: center;
+        overflow: hidden;
         li {
             float: left;
             width: calc( 100% / 6 );
+            p{
+                color: #FFF;
+                font-weight: 600;
+            }
+            img{
+                border-radius: 15px;
+            }
+        }
+    }
+    ul.spells {
+        li{
+            margin: 20px 0;
+            color: #FFF;
+            font-weight: 600;
+            img {
+                border-radius: 15px;
+                margin-right: 50px;
+                vertical-align: middle;
+            }
         }
     }
 
@@ -417,5 +435,23 @@ body#items, body#summonerSpells, body#skills {
             }
         }
     }
-    
+}
+
+body#detailItem, body#detailSummonerSpell, body#detailSkill{
+    h1 {
+        float: none;
+        margin-top: 50px;
+    }
+    a.retour {
+        color: #FFF;
+        font-weight: 600;
+    }
+    section {
+        p {
+            color: #8A8D91;
+        }
+        img {
+            border-radius: 15px;
+        }
+    }
 }
