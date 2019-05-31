@@ -11,7 +11,7 @@
 
     <ul class="pagination">
         <li class="{{ ($list_champions->currentPage() == 1) ? ' disabled' : '' }}">
-            <a href="{{ $list_champions->url(1) }}"><</a>
+            <a href="{{ $list_champions->url($list_champions->currentPage()-1) }}"><</a>
         </li>
         @for ($i = 1; $i <= $list_champions->lastPage(); $i++)
             <li class="{{ ($list_champions->currentPage() == $i) ? ' active' : '' }}">

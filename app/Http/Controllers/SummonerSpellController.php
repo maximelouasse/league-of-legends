@@ -33,7 +33,12 @@ class SummonerSpellController extends Controller
             ]
 		];
 
-		return response()->view('pages.summoner_spells', ['title' => 'Summoner Spells', 'list_summoner_spells' => $summoner_spells, 'pagination' => $pagination]);
+		return response()->view('pages.summoner_spells', [
+			'title' => 'Summoner Spells',
+			'idCss' => 'summonerSpells',
+			'list_summoner_spells' => $summoner_spells, 
+			'pagination' => $pagination
+		]);
 	}
 	
 	function getSummonerSpellDetail($summonerSpellId) {
@@ -51,7 +56,11 @@ class SummonerSpellController extends Controller
 				$result = $one_data;
 		}
 
-		return response()->view('pages.detail_summoner_spell', ['title' => $result->name, 'info_summoner_spell' => $result]);
+		return response()->view('pages.detail_summoner_spell', [
+			'title' => $result->name,
+			'idCss' => 'detailSummonerSpell',  
+			'info_summoner_spell' => $result
+		]);
 	}
 
 	function store(Request $request)
@@ -99,7 +108,12 @@ class SummonerSpellController extends Controller
 	{
 		$summoner_spell = SummonerSpell::find($summonerSpellId);
 
-		return view('pages.edit_summoner_spell', ['id_summoner_spell' => $summonerSpellId, 'info_summoner_spell' => $summoner_spell]);
+		return view('pages.edit_summoner_spell', [
+			'id_summoner_spell' => $summonerSpellId, 
+			'title' => 'Modification du summoners spell ' . $summonerSpellId,
+			'idCss' => 'editSummonerSpell', 
+			'info_summoner_spell' => $summoner_spell
+		]);
 	}
 
 	/***************************/

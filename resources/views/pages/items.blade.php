@@ -2,16 +2,116 @@
 
 @section('content')
 	<h1>Liste des objets</h1>
-	<a href="/items/add">Ajouter un objet</a>
-	<ul>
+	<a href="/items/add" class="button_creation">+ Nouveau</a>
+	<section>
+
+		<!-- TEMPLATE ITEM A SUPPRIMER -->
+		<ul>
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+
+			<li>
+				<a href="">
+					<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/1001.png" alt="">
+					<p>Botte</p>
+				</a>
+				<button><img src="{{ asset('img/edit.png') }}" alt=""></button>
+				<button><img src="{{ asset('img/delete.png') }}" alt=""></button>
+			</li>
+		</ul>
+		<!-- TEMPLATE ITEM A SUPPRIMER -->
+
+	<!--<ul>
 		@foreach ($list_items as $item)
 			<li>
 				<list-items :item="{{ $item }}"></list-items>
 			</li>
 		@endforeach
-	</ul>
+	</ul>-->
+	</section>
 
-	{{ $list_items->render() }}
+	<ul class="pagination">
+        <li class="{{ ($list_items->currentPage() == 1) ? ' disabled' : '' }}">
+            <a href="{{ $list_items->url($list_items->currentPage()-1) }}"><</a>
+        </li>
+        @for ($i = 1; $i <= $list_items->lastPage(); $i++)
+            <li class="{{ ($list_items->currentPage() == $i) ? ' active' : '' }}">
+                <a href="{{ $list_items->url($i) }}">{{ $i }}</a>
+            </li>
+        @endfor
+        <li class="{{ ($list_items->currentPage() == $list_items->lastPage()) ? ' disabled' : '' }}">
+            <a href="{{ $list_items->url($list_items->currentPage()+1) }}" >></a>
+        </li>
+    </ul>
 @stop
 
 @section('specificscripts')

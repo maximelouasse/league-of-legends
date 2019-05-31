@@ -6,8 +6,8 @@
 		<div class="form-group">
 			<label>Nom</label>
 			<input type="text" name="name">
-			<input type="text" name="id" value="{{ $id_item }}">
-			<input type="text" name="edit" value="true">
+			<input type="hidden" name="id" value="{{ $id_item }}">
+			<input type="hidden" name="edit" value="true">
 		</div>
 		<div class="form-group">
 			<button type="submit" >Modifier</button>
