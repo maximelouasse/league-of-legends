@@ -4,7 +4,7 @@
 		@include('includes.head')
 	</head>
 
-    <body id="{{ $title }}">
+    <body id="{{ $idCss }}">
             @include('includes.header')
 		    
             <main>

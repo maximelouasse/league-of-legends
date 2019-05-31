@@ -33,7 +33,12 @@ class SkillController extends Controller
             ]
 		];
 
-		return response()->view('pages.skills', ['title' => 'Skils', 'list_skills' => $skills,'pagination' => $pagination]);
+		return response()->view('pages.skills', [
+			'title' => 'Skills', 
+			'idCss' => 'skills', 
+			'list_skills' => $skills,
+			'pagination' => $pagination
+		]);
 	}
 	
 	function getSkillDetail($skillId)
@@ -53,6 +58,10 @@ class SkillController extends Controller
 				$result = $spell;
 		}
 
-		return response()->view('pages.detail_skill', ['title' => $skill->name, 'info_skill' => $result]);
+		return response()->view('pages.detail_skill', [
+			'title' => $skill->name, 
+			'idCss' => 'detailItem',
+			'info_skill' => $result
+		]);
 	}
 }

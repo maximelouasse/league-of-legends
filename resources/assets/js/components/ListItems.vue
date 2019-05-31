@@ -1,13 +1,16 @@
 <template>
-    <span>{{ item.name }}
-		<button v-on:click="getDetailItem(item)">Détail</button>
-		<button v-on:click="updateItem(item)">Modifer</button>
-		<button v-on:click="deleteItem(item)">Supprimer</button>
-	</span>
+	<li>
+		<a href="">
+			<img v-bind:src="'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/' + item.key + '.png'" alt="" />
+			<p>{{ item.name }}</p>
+		</a>
+		<button v-on:click="updateItem(item)"><img :src="'/img/edit.png'" alt=""></button>
+		<button v-on:click="deleteItem(item)"><img :src="'/img/delete.png'" alt=""></button>
+	</li>
 </template>
 
-<script>
-    export default {
+<script>	
+	export default {
 		props: [
 			'item'
 		],

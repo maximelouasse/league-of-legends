@@ -6,8 +6,8 @@
 		<div class="form-group">
 			<label>Nom</label>
 			<input type="text" name="name" value="{{ $info_champion->name }}">
-			<input type="text" name="id" value="{{ $id_champion }}">
-			<input type="text" name="edit" value="true">
+			<input type="hidden" name="id" value="{{ $id_champion }}">
+			<input type="hidden" name="edit" value="true">
 		</div>
 
 		@for ($i = 0; $i < 6; $i++)

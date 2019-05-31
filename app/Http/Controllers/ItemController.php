@@ -23,7 +23,7 @@ class ItemController extends Controller
 
 	function getAllItems()
 	{
-		$items = Item::paginate(5);
+		$items = Item::paginate(18);
 
 		$pagination = [
 			'pagination' => [
@@ -36,14 +36,23 @@ class ItemController extends Controller
             ]
 		];
 		
-		return response()->view('pages.items', ['title' => 'Items', 'list_items' => $items, 'pagination' => $pagination]);
+		return response()->view('pages.items', [
+			'title' => 'Items',
+			'idCss' => 'items',  
+			'list_items' => $items, 
+			'pagination' => $pagination
+		]);
 	}
 
 	function getItemDetail($itemKey)
 	{
 		$data = $this->callApi();
 
-		return response()->view('pages.detail_item', ['title' => $data->$itemKey->name, 'info_item' => $data->$itemKey]);
+		return response()->view('pages.detail_item', [
+			'title' => $data->$itemKey->name,
+			'idCss' => 'detailItem', 
+			'info_item' => $data->$itemKey
+		]);
 	}
 	
 	function store(Request $request)

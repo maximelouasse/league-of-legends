@@ -44710,6 +44710,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['item'],
@@ -44746,19 +44749,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("span", [
-    _vm._v(_vm._s(_vm.item.name) + "\n\t\t"),
-    _c(
-      "button",
-      {
-        on: {
-          click: function($event) {
-            return _vm.getDetailItem(_vm.item)
-          }
+  return _c("li", [
+    _c("a", { attrs: { href: "" } }, [
+      _c("img", {
+        attrs: {
+          src:
+            "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/" +
+            _vm.item.key +
+            ".png",
+          alt: ""
         }
-      },
-      [_vm._v("Détail")]
-    ),
+      }),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.item.name))])
+    ]),
     _vm._v(" "),
     _c(
       "button",
@@ -44769,7 +44773,7 @@ var render = function() {
           }
         }
       },
-      [_vm._v("Modifer")]
+      [_c("img", { attrs: { src: "/img/edit.png", alt: "" } })]
     ),
     _vm._v(" "),
     _c(
@@ -44781,7 +44785,7 @@ var render = function() {
           }
         }
       },
-      [_vm._v("Supprimer")]
+      [_c("img", { attrs: { src: "/img/delete.png", alt: "" } })]
     )
   ])
 }

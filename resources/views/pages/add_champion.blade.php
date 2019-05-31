@@ -6,7 +6,7 @@
 		<div class="form-group">
 			<label>Nom</label>
 			<input type="text" name="name">
-			<input type="text" name="edit" value="false">
+			<input type="hidden" name="edit" value="false">
 		</div>
 
 		@for ($i = 0; $i < 6; $i++)
